@@ -1,0 +1,125 @@
+body{
+	background-color: #404040;
+}
+
+#container{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#logo{
+	color: white;
+	margin-top: 20px;
+	font-size: 44px;
+	letter-spacing: 3px;
+	font-weight: 900;
+}
+
+#content{
+	float: left;
+	padding: 40px;
+	width: 730px;
+	background-color: #dedede;
+	min-height: 580px;
+	text-align: justify;
+}
+
+#chapters{
+	float:left;
+	width: 148px;
+	min-height: 620px;
+	padding: 20px;
+	background-color: lightgray;
+	text-align: center;
+	font-size: 18px;
+	border-right: 2px dotted #666666;
+}
+
+.optionsL{
+	font-size: 18px;
+	height: 25px;
+	padding: 10px;
+	border-bottom: 2px dotted #444444;
+}
+
+.linkTwo{
+    color: #404040;
+    text-decoration: none;
+}
+
+.optionsL:hover{
+	background-color: #404040;
+	color: white;
+	cursor: pointer;
+}
+
+.dottedline{
+	height: 5px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	border-bottom: 2px dotted #444444;
+}
+
+.line{
+    clear: both;
+	height: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #444444;
+}
+
+#save{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px dotted #444444;
+}
+
+.aId{
+    float: left;
+    width:50px;
+    text-align: center;
+}
+.title{
+    float: left;
+    width:120px;
+    text-align: center;
+}
+
+.desc{
+    float: left;
+    width:300px;
+    text-align: center;
+}
+
+.chapter{
+    float: left;
+    width:100px;
+    text-align: center;
+}
+
+.paragraphs{
+    float: left;
+    width: 100px;
+    text-align: center;
+}
+
+.comments{
+    float: left;
+    width: 60px;
+    text-align: center;
+}
+
+.link{
+    color: black;
+    text-decoration: none;
+}
+
+.link:hover{
+    color: #404040;
+    cursor: pointer;
+}

@@ -1,0 +1,19 @@
+body{
+	background-color: #404040;
+}
+
+#container{
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#log{
+   background-color: #dedede;
+   margin-top: 40px;
+   margin-bottom: 20px;
+   padding: 20px;
+   text-align: center;
+   margin-left: auto;
+   margin-right: auto;
+}

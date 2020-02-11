@@ -1,0 +1,158 @@
+body{
+	background-color: #404040;
+}
+
+#container{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#logo{
+	color: white;
+	margin-top: 20px;
+	font-size: 44px;
+	letter-spacing: 3px;
+	font-weight: 900;
+}
+
+#topMenu{
+	background-color: #303030;
+	margin-top: 20px;
+	padding: 10;
+}
+
+#ad{
+	background-color: #128870;
+	color: white;
+	text-align: center;
+	padding: 60px;
+	margin-top: 20px;
+	margin-bottom: 25px;
+}
+
+#ad:hover{
+    background-color: #35aa92;
+    cursor: pointer;
+}
+
+#content{
+	float: left;
+	padding: 40px;
+	width: 730px;
+	background-color: #dedede;
+	min-height: 580px;
+	text-align: justify;
+}
+
+#chapters{
+	float:left;
+	width: 148px;
+	min-height: 620px;
+	padding: 20px;
+	background-color: lightgray;
+	text-align: center;
+	font-size: 18px;
+	border-right: 2px dotted #666666;
+}
+
+#footer{
+	clear: both;
+	color: white;
+	text-align: center;
+	padding: 20px;
+	font-size: 18px;
+}
+
+.topbar{
+	float: left;
+	min-width: 50px;
+	height: 25px;
+	font-size: 18px;
+	padding: 10px;
+	border-right: 2px dotted #444444;
+	opacity: 0.8;
+}
+
+.linkTop{
+    color: white;
+    text-decoration: none;
+}
+
+.topbar:hover{
+	background-color: #000000;
+	cursor: pointer;
+}
+
+.bigtitle{
+	font-size: 32px;
+	font-weight: 900;
+	letter-spacing: 2px;
+}
+
+.optionsL{
+	font-size: 18px;
+	height: 25px;
+	padding: 10px;
+	border-bottom: 2px dotted #444444;
+}
+
+.linkTwo{
+    color: #404040;
+    text-decoration: none;
+}
+
+.optionsL:hover{
+	background-color: #404040;
+	color: white;
+	cursor: pointer;
+}
+
+.dottedline{
+	height: 5px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	border-bottom: 2px dotted #444444;
+}
+
+.article{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 500px;
+    padding: 20px;
+    border: 1px solid #444444;
+}
+
+.article:hover{
+    background-color: lightgray;
+	cursor: pointer;
+}
+
+#addComment{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px dotted #444444;
+}
+
+.commentList{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comment{
+    text-align: left;
+}
+
+.answer{
+    text-align: right;
+    color: #505050;
+}
