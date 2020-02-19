@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
 <body>
     <div id = "container">
 		<div id = "logo">
-			<p>Hello World</p>
+			<p>Hello</p>
 		</div>
 
 		<div id ="topMenu">
@@ -27,6 +28,14 @@
                 <a href="${linkTop}" class="linkTop"><div class ="topbar">${topbarEntity}</div></a>
 
 			</c:forEach>
+			    <security:authorize access="isAuthenticated()">
+                    <a href="/logout" class="linkTop"><div class ="topbar">logout</div></a>
+                </security:authorize>
+
+                <security:authorize access="!isAuthenticated()">
+                    <a href="/login" class="linkTop"><div class ="topbar">login</div></a>
+                </security:authorize>
+
 			<div style = "clear:both;"></div>
 		</div>
 
