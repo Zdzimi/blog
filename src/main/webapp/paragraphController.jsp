@@ -85,6 +85,7 @@
                         <label for="photoChooser">Choose photo:</label>
                         <select id="photoChooser" name="photoId">
 
+                            <option value="0"></option>
                         <c:forEach var="entity" items="${photos}">
                             <option value="${entity.photoId}">${entity.photoId}</option>
                         </c:forEach>
