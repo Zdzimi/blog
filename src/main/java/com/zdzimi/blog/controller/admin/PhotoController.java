@@ -43,7 +43,7 @@ public class PhotoController {
         return modelAndView;
     }
 
-    @RequestMapping("/deletePhoto")
+    @RequestMapping("/delete-photo")
     public String deletePhoto(long photoId){
         if (photoId == 0) return "redirect:/photos";
         Optional<Photo> photoToDelete = photoRepository.findById(photoId);
@@ -58,7 +58,7 @@ public class PhotoController {
         return "redirect:/photos";
     }
 
-    @RequestMapping(value = "/addPhoto", method = RequestMethod.POST)
+    @RequestMapping(value = "/add-photo", method = RequestMethod.POST)
     public String addPhoto(String photoPath, int photoHeight, int photoWidth, String photoDescription){
         Map result = null;
         try {

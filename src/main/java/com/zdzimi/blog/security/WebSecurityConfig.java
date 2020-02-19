@@ -46,14 +46,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/logout-success").permitAll()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/addComment").hasRole("USER")
+                .antMatchers("/add-comment").hasRole("USER")
                 .antMatchers("/admin",
-                        "/articles","/articlesByChapter","/deleteArticle","/saveArticleEntity",
-                        "/chapters","/deleteChapter","/saveChapterEntity",
-                        "/comments","/commentsByArticle","/deleteComment","/answer",
-                        "/paragraphs","/paragraphsByArticle","/deleteParagraph","/saveParagraphEntity",
-                        "/photos","/deletePhoto","/addPhoto",
-                        "/topbar","/deleteTopbar","/saveTopEntity").hasRole("ADMIN")
+                        "/articles","/articles-by-chapter","/delete-article","/save-article",
+                        "/chapters","/delete-chapter","/save-chapter",
+                        "/comments","/comments-by-article","/delete-comment","/answer",
+                        "/paragraphs","/paragraphs-by-article","/delete-paragraph","/save-paragraph",
+                        "/photos","/delete-photo","/add-photo",
+                        "/topbar","/delete-topbar","/save-top").hasRole("ADMIN")
                 .and()
                 .formLogin().permitAll();
     }
@@ -63,11 +63,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-//    @EventListener(ApplicationReadyEvent.class)
-//    protected void start(){
-//        User user = new User("user", passwordEncoder().encode("user"), "ROLE_USER");
-//        User admin = new User("admin", passwordEncoder().encode("admin"), "ROLE_ADMIN");
-//        userRepository.save(user);
-//        userRepository.save(admin);
-//    }
+    @EventListener(ApplicationReadyEvent.class)
+    protected void start(){
+        User user = new User("user", passwordEncoder().encode("user"), "ROLE_USER");
+        User admin = new User("admin", passwordEncoder().encode("admin"), "ROLE_ADMIN");
+        userRepository.save(user);
+        userRepository.save(admin);
+    }
 }

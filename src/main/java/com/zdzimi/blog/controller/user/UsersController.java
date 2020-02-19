@@ -99,7 +99,7 @@ public class UsersController {
         return modelAndView;
     }
 
-    @RequestMapping("/addComment")
+    @RequestMapping("/add-comment")
     public String addComment(String username, String commentContent, String articleTitle){
         Article article = articleRepository.findByArticleTitle(articleTitle);
         Comment comment = new Comment(username,commentContent,article);

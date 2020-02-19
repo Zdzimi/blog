@@ -35,7 +35,7 @@ public class CommentController {
         return modelAndView;
     }
 
-    @RequestMapping("/commentsByArticle")
+    @RequestMapping("/comments-by-article")
     public ModelAndView showCommentControllerWithCommentsByArticle(@RequestParam String articleTitle){
         ModelAndView modelAndView = new ModelAndView("commentController.jsp");
         modelAndView.addObject("nav", ADMIN_NAVIGATION);
@@ -45,7 +45,7 @@ public class CommentController {
         return modelAndView;
     }
 
-    @RequestMapping("/deleteComment")
+    @RequestMapping("/delete-comment")
     public String deleteCommentEntity(int commentId){
         commentRepository.deleteById(commentId);
         return "redirect:/comments";

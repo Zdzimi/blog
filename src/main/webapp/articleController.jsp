@@ -41,7 +41,7 @@
                 <div class="aId">${ent.articleId}</div>
                 <div class="title">
 
-                    <c:url var="byArticle" value="/paragraphsByArticle" >
+                    <c:url var="byArticle" value="/paragraphs-by-article" >
                         <c:param name="articleTitle" value="${ent.articleTitle}" />
                     </c:url>
                     <a href="${byArticle}" class="link">${ent.articleTitle}</a></br>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="comments">
 
-                    <c:url var="commentsByArticle" value="/commentsByArticle" >
+                    <c:url var="commentsByArticle" value="/comments-by-article" >
                         <c:param name="articleTitle" value="${ent.articleTitle}" />
                     </c:url>
                     <a href="${commentsByArticle}" class="link">#</a>
@@ -67,7 +67,7 @@
 
 		    <h2>Delete article entity:</h2>
 
-            <form action="deleteArticle">
+            <form action="delete-article">
                 <label for="articleEntity">Choose entity to delete</label>
             	<select id="articleEntity" name="articleTitle">
 
@@ -84,7 +84,7 @@
 
             <div id="save">
 
-                <form action="saveArticleEntity">
+                <form action="save-article">
             	    <div><label>Id: <input type="number" name="articleId"></label>
             		<label>Title: <input type="text" name="articleTitle"></label></div>
 

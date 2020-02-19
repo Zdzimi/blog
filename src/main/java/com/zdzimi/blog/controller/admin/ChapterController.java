@@ -44,7 +44,7 @@ public class ChapterController {
         return modelAndView;
     }
 
-    @RequestMapping("/deleteChapter")
+    @RequestMapping("/delete-chapter")
     public String deleteChapterByTitle(String chapterTit){
         Chapter chapterToDelete = chapterRepository.findByChapterTitle(chapterTit);
 
@@ -69,7 +69,7 @@ public class ChapterController {
         return "redirect:/chapters";
     }
 
-    @RequestMapping("/saveChapterEntity")
+    @RequestMapping("/save-chapter")
     public String saveChapter(int chapterId, String chapterTitle){
         chapterRepository.save(new Chapter(chapterId, chapterTitle));
         return "redirect:/chapters";

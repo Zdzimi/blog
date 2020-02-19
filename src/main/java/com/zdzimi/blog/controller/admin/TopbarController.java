@@ -30,14 +30,14 @@ public class TopbarController {
         return modelAndView;
     }
 
-    @RequestMapping("/deleteTopbar")
+    @RequestMapping("/delete-topbar")
     public String deleteTopbar(String top){
         TopbarMenu byTop = topbarMenuRepository.findByTop(top);
         topbarMenuRepository.delete(byTop);
         return "redirect:/topbar";
     }
 
-    @RequestMapping("/saveTopEntity")
+    @RequestMapping("/save-top")
     public String saveTopEntity(int tId, String top, String tContent){
         TopbarMenu save = topbarMenuRepository.save(new TopbarMenu(tId, top, tContent));
         return "redirect:/topbar";

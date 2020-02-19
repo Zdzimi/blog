@@ -46,7 +46,7 @@ public class ArticleController {
         return modelAndView;
     }
 
-    @RequestMapping("/articlesByChapter")
+    @RequestMapping("/articles-by-chapter")
     public ModelAndView showArticleControllerWithArticlesByChapter(@RequestParam String chapterTitle){
         ModelAndView modelAndView = new ModelAndView("articleController.jsp");
         modelAndView.addObject("nav", ADMIN_NAVIGATION);
@@ -56,7 +56,7 @@ public class ArticleController {
         return modelAndView;
     }
 
-    @RequestMapping("/deleteArticle")
+    @RequestMapping("/delete-article")
     public String deleteArticle(String articleTitle){
         Article articleToDelete = articleRepository.findByArticleTitle(articleTitle);
 
@@ -75,7 +75,7 @@ public class ArticleController {
         return "redirect:/articles";
     }
 
-    @RequestMapping("/saveArticleEntity")
+    @RequestMapping("/save-article")
     public String saveArticleEntity(int articleId, String articleTitle, String description, String chapterTitle){
         Chapter chapter = chapterRepository.findByChapterTitle(chapterTitle);
         articleRepository.save(new Article(articleId,articleTitle,description,chapter));

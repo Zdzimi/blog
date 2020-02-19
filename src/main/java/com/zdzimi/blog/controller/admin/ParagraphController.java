@@ -42,7 +42,7 @@ public class ParagraphController {
         return modelAndView;
     }
 
-    @RequestMapping("/paragraphsByArticle")
+    @RequestMapping("/paragraphs-by-article")
     public ModelAndView showParagraphControllerWithParagraphsByArticle(@RequestParam String articleTitle){
         ModelAndView modelAndView = new ModelAndView("paragraphController.jsp");
         modelAndView.addObject("nav", ADMIN_NAVIGATION);
@@ -53,14 +53,14 @@ public class ParagraphController {
         return modelAndView;
     }
 
-    @RequestMapping("/deleteParagraph")
+    @RequestMapping("/delete-paragraph")
     public String deleteParagraph(int pId){
         Optional<Paragraph> paragraph = paragraphRepository.findById(pId);
         paragraph.ifPresent(p -> paragraphRepository.delete(p));
         return "redirect:/paragraphs";
     }
 
-    @RequestMapping("/saveParagraphEntity")
+    @RequestMapping("/save-paragraph")
     public String saveParagraph(int pId, String header, String content, String articleTitle, long photoId){
         Article article = articleRepository.findByArticleTitle(articleTitle);
         Photo photo = photoRepository.findById(photoId).orElse(null);

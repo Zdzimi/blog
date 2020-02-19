@@ -38,7 +38,7 @@
                 <div class="chId">${ent.chapterId}</div>
                 <div class="title">
 
-                    <c:url var="byChapter" value="/articlesByChapter" >
+                    <c:url var="byChapter" value="/articles-by-chapter" >
                         <c:param name="chapterTitle" value="${ent.chapterTitle}" />
                     </c:url>
                     <a href="${byChapter}" class="link">${ent.chapterTitle}</a>
@@ -47,7 +47,7 @@
                 <div class="articles">
                     <c:forEach var="article" items="${ent.articles}">
 
-                        <c:url var="byArticle" value="/paragraphsByArticle" >
+                        <c:url var="byArticle" value="/paragraphs-by-article" >
                             <c:param name="articleTitle" value="${article.articleTitle}" />
                         </c:url>
                         <a href="${byArticle}" class="link">${article.articleTitle}</a></br>
@@ -59,7 +59,7 @@
 
 		    <h2>Delete chapter entity:</h2>
 
-            <form action="deleteChapter">
+            <form action="delete-chapter">
                 <label for="chapterEntity">Choose entity to delete</label>
             	<select id="chapterEntity" name="chapterTit">
 
@@ -76,7 +76,7 @@
 
             <div id="save">
 
-                <form action="saveChapterEntity">
+                <form action="save-chapter">
             	    <div><label>Id: <input type="number" name="chapterId"></label>
             		<label>Title: <input type="text" name="chapterTitle"></label></div>
 

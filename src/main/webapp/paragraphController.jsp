@@ -42,12 +42,12 @@
                 <div class="content">${ent.content}</div>
                 <div class="article">${ent.article.articleTitle}</div>
                 <div class="photo">${ent.photo.photoId}</div>
-                <div class = "line"></div>
+                <div class="line"></div>
 		    </c:forEach>
 
 		    <h2>Delete paragraph entity:</h2>
 
-            <form action="deleteParagraph">
+            <form action="delete-paragraph">
                 <label for="paragraphEntity">Choose entity to delete</label>
             	<select id="paragraphEntity" name="pId">
 
@@ -64,7 +64,7 @@
 
             <div id="save">
 
-                <form action="saveParagraphEntity">
+                <form action="save-paragraph">
             	    <div><label>Id: <input type="number" name="pId"></label>
             		<label>Title: <input type="text" name="header"></label></div>
 

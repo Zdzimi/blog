@@ -78,32 +78,3 @@ body{
     margin-right: auto;
     border: 2px dotted #444444;
 }
-
-.xxx{
-    float: left;
-    width:60px;
-    text-align: center;
-}
-.yyy{
-    float: left;
-    width:100px;
-    text-align: center;
-}
-
-.yyy{
-    float: left;
-    width:60px;
-    text-align: center;
-}
-
-.zzz{
-    float: left;
-    width:410px;
-    text-align: center;
-}
-
-.ppp{
-    float: left;
-    width:100px;
-    text-align: center;
-}

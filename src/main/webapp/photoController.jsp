@@ -45,7 +45,7 @@
 
 		    <h2>Delete photo:</h2>
 
-            <form action="deletePhoto">
+            <form action="delete-photo">
                 <label for="photoEntity">Choose photo to delete</label>
             	<select id="photoEntity" name="photoId">
 
@@ -63,7 +63,7 @@
 
             <div id="save">
 
-                <form action="addPhoto" method="post">
+                <form action="add-photo" method="post">
 
                     <div><label for="photoPath">Path to file:</label></div>
                     <textarea name="photoPath" id="photoPath" rows="1" cols="80"></textarea>
