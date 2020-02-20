@@ -10,9 +10,9 @@ import com.zdzimi.blog.model.Comment;
 import com.zdzimi.blog.model.Paragraph;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -38,22 +38,20 @@ public class ArticleController {
     }
 
     @RequestMapping("/articles")
-    public ModelAndView showArticleController(){
-        ModelAndView modelAndView = new ModelAndView("articleController.jsp");
-        modelAndView.addObject("nav", ADMIN_NAVIGATION);
-        modelAndView.addObject("articles", articleRepository.findAll());
-        modelAndView.addObject("chapters", chapterRepository.findAll());
-        return modelAndView;
+    public String showArticleController(Model model){
+        model.addAttribute("nav", ADMIN_NAVIGATION);
+        model.addAttribute("articles", articleRepository.findAll());
+        model.addAttribute("chapters", chapterRepository.findAll());
+        return "articles";
     }
 
     @RequestMapping("/articles-by-chapter")
-    public ModelAndView showArticleControllerWithArticlesByChapter(@RequestParam String chapterTitle){
-        ModelAndView modelAndView = new ModelAndView("articleController.jsp");
-        modelAndView.addObject("nav", ADMIN_NAVIGATION);
+    public String showArticleControllerWithArticlesByChapter(@RequestParam String chapterTitle, Model model){
+        model.addAttribute("nav", ADMIN_NAVIGATION);
         Chapter chapter = chapterRepository.findByChapterTitle(chapterTitle);
-        modelAndView.addObject("articles", articleRepository.findByChapter(chapter));
-        modelAndView.addObject("chapters", chapterRepository.findAll());
-        return modelAndView;
+        model.addAttribute("articles", articleRepository.findByChapter(chapter));
+        model.addAttribute("chapters", chapterRepository.findAll());
+        return "articles";
     }
 
     @RequestMapping("/delete-article")

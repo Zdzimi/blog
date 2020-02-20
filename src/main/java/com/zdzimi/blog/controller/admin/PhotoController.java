@@ -8,9 +8,9 @@ import com.zdzimi.blog.model.Paragraph;
 import com.zdzimi.blog.model.Photo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.io.*;
 import java.util.Map;
@@ -36,11 +36,10 @@ public class PhotoController {
     }
 
     @RequestMapping("/photos")
-    public ModelAndView showPhotoController(){
-        ModelAndView modelAndView = new ModelAndView("photoController.jsp");
-        modelAndView.addObject("nav", ADMIN_NAVIGATION);
-        modelAndView.addObject("photos", photoRepository.findAll());
-        return modelAndView;
+    public String showPhotoController(Model model){
+        model.addAttribute("nav", ADMIN_NAVIGATION);
+        model.addAttribute("photos", photoRepository.findAll());
+        return "photo";
     }
 
     @RequestMapping("/delete-photo")

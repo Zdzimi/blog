@@ -4,10 +4,8 @@ import com.zdzimi.blog.dao.TopbarMenuRepository;
 import com.zdzimi.blog.model.TopbarMenu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
 
 import static com.zdzimi.blog.controller.admin.AdminNavigation.ADMIN_NAVIGATION;
 
@@ -22,12 +20,10 @@ public class TopbarController {
     }
 
     @RequestMapping("/topbar")
-    public ModelAndView showTopbarController(){
-        ModelAndView modelAndView = new ModelAndView("topbar.jsp");
-        modelAndView.addObject("nav", ADMIN_NAVIGATION);
-        List<TopbarMenu> all = topbarMenuRepository.findAll();
-        modelAndView.addObject("top", all);
-        return modelAndView;
+    public String showTopbarController(Model model){
+        model.addAttribute("nav", ADMIN_NAVIGATION);
+        model.addAttribute("top", topbarMenuRepository.findAll());
+        return "topbar";
     }
 
     @RequestMapping("/delete-topbar")

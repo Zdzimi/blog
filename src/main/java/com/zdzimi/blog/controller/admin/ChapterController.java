@@ -10,8 +10,8 @@ import com.zdzimi.blog.model.Comment;
 import com.zdzimi.blog.model.Paragraph;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -37,11 +37,10 @@ public class ChapterController {
     }
 
     @RequestMapping("/chapters")
-    public ModelAndView showChapterController(){
-        ModelAndView modelAndView = new ModelAndView("chapterController.jsp");
-        modelAndView.addObject("nav",ADMIN_NAVIGATION);
-        modelAndView.addObject("chapters", chapterRepository.findAll());
-        return modelAndView;
+    public String showChapterController(Model model){
+        model.addAttribute("nav",ADMIN_NAVIGATION);
+        model.addAttribute("chapters", chapterRepository.findAll());
+        return "chapters";
     }
 
     @RequestMapping("/delete-chapter")

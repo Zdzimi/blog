@@ -4,8 +4,8 @@ import com.zdzimi.blog.dao.*;
 import com.zdzimi.blog.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -34,69 +34,46 @@ public class UsersController {
     /*---------------------------------------------------------------------------------------*/
 
     @RequestMapping("/")
-    public ModelAndView showHomePage(){
-        ModelAndView modelAndView = new ModelAndView("home.jsp");
-        List<String> topMenuList = UsersNavigation.getTopMenuList(topbarMenuRepository);
-        modelAndView.addObject("topMenu",topMenuList);
-
-        List<String> chapterList = UsersNavigation.getChaptersList(chapterRepository);
-        modelAndView.addObject("chapters",chapterList);
-
-        return modelAndView;
+    public String showHomePage(Model model){
+        model.addAttribute("topMenu",UsersNavigation.getTopMenuList(topbarMenuRepository));
+        model.addAttribute("chapters",UsersNavigation.getChaptersList(chapterRepository));
+        return "home";
     }
 
     @RequestMapping("/hello")
-    public ModelAndView showTopbarEntity (@RequestParam String top){
-        ModelAndView modelAndView = new ModelAndView("home.jsp");
-        List<String> topMenuList = UsersNavigation.getTopMenuList(topbarMenuRepository);
-        modelAndView.addObject("topMenu",topMenuList);
-
-        List<String> chapterList = UsersNavigation.getChaptersList(chapterRepository);
-        modelAndView.addObject("chapters",chapterList);
-
-        TopbarMenu topbarMenuEntity = topbarMenuRepository.findByTop(top);
-        modelAndView.addObject("content", topbarMenuEntity);
-        return modelAndView;
+    public String showTopbarEntity (@RequestParam String top, Model model){
+        model.addAttribute("topMenu",UsersNavigation.getTopMenuList(topbarMenuRepository));
+        model.addAttribute("chapters",UsersNavigation.getChaptersList(chapterRepository));
+        model.addAttribute("content", topbarMenuRepository.findByTop(top));
+        return "home";
     }
 
     /*---------------------------------------------------------------------------------------*/
 
     @RequestMapping("/chapter")
-    public ModelAndView showChapter(@RequestParam String title){
-        ModelAndView modelAndView = new ModelAndView("home.jsp");
-
-        List<String> topMenuList = UsersNavigation.getTopMenuList(topbarMenuRepository);
-        modelAndView.addObject("topMenu",topMenuList);
-
-        List<String> chapterList = UsersNavigation.getChaptersList(chapterRepository);
-        modelAndView.addObject("chapters",chapterList);
-
+    public String showChapter(@RequestParam String title, Model model){
+        model.addAttribute("topMenu",UsersNavigation.getTopMenuList(topbarMenuRepository));
+        model.addAttribute("chapters",UsersNavigation.getChaptersList(chapterRepository));
         Chapter chapter = chapterRepository.findByChapterTitle(title);
         List<Article> articleList = articleRepository.findByChapter(chapter);
-        modelAndView.addObject("articleList", articleList);
-
-        return modelAndView;
+        model.addAttribute("articleList",articleList);
+        return "home";
     }
 
     /*---------------------------------------------------------------------------------------*/
 
     @RequestMapping("/article")
-    public ModelAndView showArticle(@RequestParam String title){
-        ModelAndView modelAndView = new ModelAndView("article.jsp");
-
-        List<String> topMenuList = UsersNavigation.getTopMenuList(topbarMenuRepository);
-        modelAndView.addObject("topMenu",topMenuList);
-
-        List<String> chapterList = UsersNavigation.getChaptersList(chapterRepository);
-        modelAndView.addObject("chapters",chapterList);
+    public String showArticle(@RequestParam String title, Model model){
+        model.addAttribute("topMenu",UsersNavigation.getTopMenuList(topbarMenuRepository));
+        model.addAttribute("chapters",UsersNavigation.getChaptersList(chapterRepository));
 
         Article article = articleRepository.findByArticleTitle(title);
         List<Paragraph> paragraphList = paragraphRepository.findByArticle(article);
-        modelAndView.addObject("paragraphList", paragraphList);
+        model.addAttribute("paragraphList", paragraphList);
 
         List<Comment> commentList = commentRepository.findByArticle(article);
-        modelAndView.addObject("commentList", commentList);
-        return modelAndView;
+        model.addAttribute("commentList", commentList);
+        return "article";
     }
 
     @RequestMapping("/add-comment")

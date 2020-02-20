@@ -36,6 +36,14 @@ body{
 	border-right: 2px dotted #666666;
 }
 
+#footer{
+	clear: both;
+	color: white;
+	text-align: center;
+	padding: 20px;
+	font-size: 18px;
+}
+
 .optionsL{
 	font-size: 18px;
 	height: 25px;

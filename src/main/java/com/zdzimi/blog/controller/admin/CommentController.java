@@ -6,9 +6,9 @@ import com.zdzimi.blog.model.Article;
 import com.zdzimi.blog.model.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Optional;
 
@@ -27,22 +27,20 @@ public class CommentController {
     }
 
     @RequestMapping("/comments")
-    public ModelAndView showCommentController(){
-        ModelAndView modelAndView = new ModelAndView("commentController.jsp");
-        modelAndView.addObject("nav", ADMIN_NAVIGATION);
-        modelAndView.addObject("comments",commentRepository.findAll());
-        modelAndView.addObject("articles",articleRepository.findAll());
-        return modelAndView;
+    public String showCommentController(Model model){
+        model.addAttribute("nav", ADMIN_NAVIGATION);
+        model.addAttribute("comments",commentRepository.findAll());
+        model.addAttribute("articles",articleRepository.findAll());
+        return "comments";
     }
 
     @RequestMapping("/comments-by-article")
-    public ModelAndView showCommentControllerWithCommentsByArticle(@RequestParam String articleTitle){
-        ModelAndView modelAndView = new ModelAndView("commentController.jsp");
-        modelAndView.addObject("nav", ADMIN_NAVIGATION);
+    public String showCommentControllerWithCommentsByArticle(@RequestParam String articleTitle, Model model){
+        model.addAttribute("nav", ADMIN_NAVIGATION);
         Article article = articleRepository.findByArticleTitle(articleTitle);
-        modelAndView.addObject("comments",commentRepository.findByArticle(article));
-        modelAndView.addObject("articles", articleRepository.findAll());
-        return modelAndView;
+        model.addAttribute("comments",commentRepository.findByArticle(article));
+        model.addAttribute("articles", articleRepository.findAll());
+        return "comments";
     }
 
     @RequestMapping("/delete-comment")

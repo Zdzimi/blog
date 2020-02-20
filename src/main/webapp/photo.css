@@ -36,6 +36,14 @@ body{
 	border-right: 2px dotted #666666;
 }
 
+#footer{
+	clear: both;
+	color: white;
+	text-align: center;
+	padding: 20px;
+	font-size: 18px;
+}
+
 .optionsL{
 	font-size: 18px;
 	height: 25px;
@@ -77,30 +85,4 @@ body{
     margin-left: auto;
     margin-right: auto;
     border: 2px dotted #444444;
-}
-
-.chId{
-    float: left;
-    width:100px;
-    text-align:center;
-}
-.title{
-    float: left;
-    width:320px;
-    text-align:center;
-}
-.articles{
-    float: left;
-    width:310px;
-    text-align:center;
-}
-
-.link{
-    color: black;
-    text-decoration: none;
-}
-
-.link:hover{
-    color: #404040;
-    cursor: pointer;
 }

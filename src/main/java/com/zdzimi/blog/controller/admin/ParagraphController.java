@@ -8,9 +8,9 @@ import com.zdzimi.blog.model.Paragraph;
 import com.zdzimi.blog.model.Photo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Optional;
 
@@ -33,24 +33,22 @@ public class ParagraphController {
     }
 
     @RequestMapping("/paragraphs")
-    public ModelAndView showParagraphController(){
-        ModelAndView modelAndView = new ModelAndView("paragraphController.jsp");
-        modelAndView.addObject("nav", ADMIN_NAVIGATION);
-        modelAndView.addObject("paragraphs", paragraphRepository.findAll());
-        modelAndView.addObject("articles", articleRepository.findAll());
-        modelAndView.addObject("photos",photoRepository.findAll());
-        return modelAndView;
+    public String showParagraphController(Model model){
+        model.addAttribute("nav", ADMIN_NAVIGATION);
+        model.addAttribute("paragraphs", paragraphRepository.findAll());
+        model.addAttribute("articles", articleRepository.findAll());
+        model.addAttribute("photos",photoRepository.findAll());
+        return "paragraph";
     }
 
     @RequestMapping("/paragraphs-by-article")
-    public ModelAndView showParagraphControllerWithParagraphsByArticle(@RequestParam String articleTitle){
-        ModelAndView modelAndView = new ModelAndView("paragraphController.jsp");
-        modelAndView.addObject("nav", ADMIN_NAVIGATION);
+    public String showParagraphControllerWithParagraphsByArticle(@RequestParam String articleTitle, Model model){
+        model.addAttribute("nav", ADMIN_NAVIGATION);
         Article article = articleRepository.findByArticleTitle(articleTitle);
-        modelAndView.addObject("paragraphs", paragraphRepository.findByArticle(article));
-        modelAndView.addObject("articles", articleRepository.findAll());
-        modelAndView.addObject("photos",photoRepository.findAll());
-        return modelAndView;
+        model.addAttribute("paragraphs", paragraphRepository.findByArticle(article));
+        model.addAttribute("articles", articleRepository.findAll());
+        model.addAttribute("photos",photoRepository.findAll());
+        return "paragraph";
     }
 
     @RequestMapping("/delete-paragraph")
