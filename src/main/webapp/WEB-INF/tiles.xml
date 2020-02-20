@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+
+<tiles-definitions>
+
+    <definition name="home" template="/WEB-INF/jsp/base.jsp">
+        <put-attribute name="title" value="My Blog app" />
+        <put-attribute name="css" value="&quot;style.css&quot;" />
+        <put-attribute name="nav" value="/WEB-INF/tiles/navUser.jsp" />
+        <put-attribute name="body" value="/WEB-INF/tiles/bodyHome.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+    </definition>
+
+    <definition name="article" template="/WEB-INF/jsp/base.jsp">
+        <put-attribute name="title" value="Article" />
+        <put-attribute name="css" value="&quot;style.css&quot;" />
+        <put-attribute name="nav" value="/WEB-INF/tiles/navUser.jsp" />
+        <put-attribute name="body" value="/WEB-INF/tiles/bodyArticle.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+    </definition>
+
+    <definition name="admin" template="/WEB-INF/jsp/base.jsp">
+        <put-attribute name="title" value="Admin Panel" />
+        <put-attribute name="css" value="&quot;admin.css&quot;" />
+        <put-attribute name="nav" value="/WEB-INF/tiles/navAdmin.jsp" />
+        <put-attribute name="body" value="/WEB-INF/tiles/bodyAdmin.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+    </definition>
+
+    <definition name="articles" template="/WEB-INF/jsp/base.jsp">
+        <put-attribute name="title" value="Admin Panel" />
+        <put-attribute name="css" value="&quot;article.css&quot;" />
+        <put-attribute name="nav" value="/WEB-INF/tiles/navAdmin.jsp" />
+        <put-attribute name="body" value="/WEB-INF/tiles/bodyArticles.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+    </definition>
+
+    <definition name="chapters" template="/WEB-INF/jsp/base.jsp">
+        <put-attribute name="title" value="Admin Panel" />
+        <put-attribute name="css" value="&quot;chapter.css&quot;" />
+        <put-attribute name="nav" value="/WEB-INF/tiles/navAdmin.jsp" />
+        <put-attribute name="body" value="/WEB-INF/tiles/bodyChapters.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+    </definition>
+
+    <definition name="comments" template="/WEB-INF/jsp/base.jsp">
+        <put-attribute name="title" value="Admin Panel" />
+        <put-attribute name="css" value="&quot;comment.css&quot;" />
+        <put-attribute name="nav" value="/WEB-INF/tiles/navAdmin.jsp" />
+        <put-attribute name="body" value="/WEB-INF/tiles/bodyComments.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+    </definition>
+
+    <definition name="paragraph" template="/WEB-INF/jsp/base.jsp">
+        <put-attribute name="title" value="Admin Panel" />
+        <put-attribute name="css" value="&quot;paragraph.css&quot;" />
+        <put-attribute name="nav" value="/WEB-INF/tiles/navAdmin.jsp" />
+        <put-attribute name="body" value="/WEB-INF/tiles/bodyParagraphs.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+    </definition>
+
+    <definition name="photo" template="/WEB-INF/jsp/base.jsp">
+        <put-attribute name="title" value="Admin Panel" />
+        <put-attribute name="css" value="&quot;photo.css&quot;" />
+        <put-attribute name="nav" value="/WEB-INF/tiles/navAdmin.jsp" />
+        <put-attribute name="body" value="/WEB-INF/tiles/bodyPhotos.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+    </definition>
+
+    <definition name="topbar" template="/WEB-INF/jsp/base.jsp">
+        <put-attribute name="title" value="Admin Panel" />
+        <put-attribute name="css" value="&quot;topbar.css&quot;" />
+        <put-attribute name="nav" value="/WEB-INF/tiles/navAdmin.jsp" />
+        <put-attribute name="body" value="/WEB-INF/tiles/bodyTopbar.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+    </definition>
+
+</tiles-definitions>
