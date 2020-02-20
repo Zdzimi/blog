@@ -16,7 +16,9 @@
 <body>
     <div id = "container">
 		<div id = "logo">
-			<p>Hello</p>
+            <security:authorize access="isAuthenticated()">
+                <p>Hello <security:authentication property="principal.username" /></p>
+            </security:authorize>
 		</div>
 
 		<div id ="topMenu">
