@@ -27,7 +27,7 @@
 
 		    <h2>Delete comment entity:</h2>
 
-            <form action="delete-comment">
+            <form action="delete-comment" method="post">
                 <label for="commentEntity">Choose entity to delete</label>
             	<select id="commentEntity" name="commentId">
 
@@ -44,7 +44,7 @@
 
             <div id="save">
 
-                <form action="answer">
+                <form action="answer" method="post">
             	    <label for="commentEntity">Choose entity: </label>
                     <select id="commentEntity" name="commentId">
 

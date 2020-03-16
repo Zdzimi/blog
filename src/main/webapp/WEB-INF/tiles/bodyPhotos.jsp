@@ -25,7 +25,7 @@
 
 		    <h2>Delete photo:</h2>
 
-            <form action="delete-photo">
+            <form action="delete-photo" method="post">
                 <label for="photoEntity">Choose photo to delete</label>
             	<select id="photoEntity" name="photoId">
 

@@ -1,13 +1,9 @@
 package com.zdzimi.blog.controller.admin;
 
-import com.zdzimi.blog.dao.ArticleRepository;
-import com.zdzimi.blog.dao.ChapterRepository;
-import com.zdzimi.blog.dao.CommentRepository;
-import com.zdzimi.blog.dao.ParagraphRepository;
 import com.zdzimi.blog.model.Article;
 import com.zdzimi.blog.model.Chapter;
-import com.zdzimi.blog.model.Comment;
-import com.zdzimi.blog.model.Paragraph;
+import com.zdzimi.blog.service.ArticleService;
+import com.zdzimi.blog.service.ChapterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,62 +17,44 @@ import static com.zdzimi.blog.controller.admin.AdminNavigation.ADMIN_NAVIGATION;
 @Controller
 public class ArticleController {
 
-    private ChapterRepository chapterRepository;
-    private ArticleRepository articleRepository;
-    private ParagraphRepository paragraphRepository;
-    private CommentRepository commentRepository;
+    private ChapterService chapterService;
+    private ArticleService articleService;
 
     @Autowired
-    public ArticleController(ChapterRepository chapterRepository,
-                             ArticleRepository articleRepository,
-                             ParagraphRepository paragraphRepository,
-                             CommentRepository commentRepository) {
-        this.chapterRepository = chapterRepository;
-        this.articleRepository = articleRepository;
-        this.paragraphRepository = paragraphRepository;
-        this.commentRepository = commentRepository;
+    public ArticleController(ChapterService chapterService,
+                             ArticleService articleService) {
+        this.chapterService = chapterService;
+        this.articleService = articleService;
     }
 
     @RequestMapping("/articles")
     public String showArticleController(Model model){
         model.addAttribute("nav", ADMIN_NAVIGATION);
-        model.addAttribute("articles", articleRepository.findAll());
-        model.addAttribute("chapters", chapterRepository.findAll());
+        model.addAttribute("articles", articleService.findAll());
+        model.addAttribute("chapters", chapterService.findAll());
         return "articles";
     }
 
     @RequestMapping("/articles-by-chapter")
     public String showArticleControllerWithArticlesByChapter(@RequestParam String chapterTitle, Model model){
         model.addAttribute("nav", ADMIN_NAVIGATION);
-        Chapter chapter = chapterRepository.findByChapterTitle(chapterTitle);
-        model.addAttribute("articles", articleRepository.findByChapter(chapter));
-        model.addAttribute("chapters", chapterRepository.findAll());
+        List<Chapter> chapters = chapterService.findAll();
+        model.addAttribute("chapters", chapters);
+        model.addAttribute("articles", articleService.findArticlesByChapterTitle(chapters, chapterTitle));
         return "articles";
     }
 
     @RequestMapping("/delete-article")
     public String deleteArticle(String articleTitle){
-        Article articleToDelete = articleRepository.findByArticleTitle(articleTitle);
-
-        List<Comment> commentsToDelete = commentRepository.findByArticle(articleToDelete);
-        for (int i = 0; i < commentsToDelete.size(); i++) {
-            commentRepository.delete(commentsToDelete.get(i));
-        }
-
-        List<Paragraph> paragraphsToDelete = paragraphRepository.findByArticle(articleToDelete);
-        for (int i = 0; i < paragraphsToDelete.size(); i++) {
-            paragraphRepository.delete(paragraphsToDelete.get(i));
-        }
-
-        articleRepository.delete(articleToDelete);
-
+        Article articleToDelete = articleService.findByArticleTitle(articleTitle);
+        articleService.deleteAllFromArticle(articleToDelete);
         return "redirect:/articles";
     }
 
     @RequestMapping("/save-article")
     public String saveArticleEntity(int articleId, String articleTitle, String description, String chapterTitle){
-        Chapter chapter = chapterRepository.findByChapterTitle(chapterTitle);
-        articleRepository.save(new Article(articleId,articleTitle,description,chapter));
+        Chapter chapter = chapterService.findByChapterTitle(chapterTitle);
+        articleService.save(new Article(articleId,articleTitle,description,chapter));
         return "redirect:/articles";
     }
 }

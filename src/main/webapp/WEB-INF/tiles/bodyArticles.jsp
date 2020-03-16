@@ -47,7 +47,7 @@
 
 		    <h2>Delete article entity:</h2>
 
-            <form action="delete-article">
+            <form action="delete-article" method="post">
                 <label for="articleEntity">Choose entity to delete</label>
             	<select id="articleEntity" name="articleTitle">
 
@@ -64,7 +64,7 @@
 
             <div id="save">
 
-                <form action="save-article">
+                <form action="save-article" method="post">
             	    <div><label>Id: <input type="number" name="articleId"></label>
             		<label>Title: <input type="text" name="articleTitle"></label></div>
 

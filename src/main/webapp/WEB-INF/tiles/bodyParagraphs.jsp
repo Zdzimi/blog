@@ -27,7 +27,7 @@
 
 		    <h2>Delete paragraph entity:</h2>
 
-            <form action="delete-paragraph">
+            <form action="delete-paragraph" method="post">
                 <label for="paragraphEntity">Choose entity to delete</label>
             	<select id="paragraphEntity" name="pId">
 
@@ -44,7 +44,7 @@
 
             <div id="save">
 
-                <form action="save-paragraph">
+                <form action="save-paragraph" method="post">
             	    <div><label>Id: <input type="number" name="pId"></label>
             		<label>Title: <input type="text" name="header"></label></div>
 

@@ -23,7 +23,7 @@
 
             <h2>Delete top menu entity:</h2>
 
-		    <form action="delete-topbar" >
+		    <form action="delete-topbar" method="post">
 		        <label for="topEntity">Choose entity to delete</label>
 		            <select id="topEntity" name="top">
 
@@ -40,7 +40,7 @@
 
 		    <div id="save">
 
-		        <form action="save-top">
+		        <form action="save-top" method="post">
 		            <div><label>Id: <input type="number" name="tId"></label>
 		            <label>Top: <input type="text" name="top"></label></div>
 

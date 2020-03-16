@@ -39,7 +39,7 @@
 
 		    <h2>Delete chapter entity:</h2>
 
-            <form action="delete-chapter">
+            <form action="delete-chapter" method="post">
                 <label for="chapterEntity">Choose entity to delete</label>
             	<select id="chapterEntity" name="chapterTit">
 
@@ -56,7 +56,7 @@
 
             <div id="save">
 
-                <form action="save-chapter">
+                <form action="save-chapter" method="post">
             	    <div><label>Id: <input type="number" name="chapterId"></label>
             		<label>Title: <input type="text" name="chapterTitle"></label></div>
 

@@ -1,7 +1,8 @@
 package com.zdzimi.blog.model;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Article {
@@ -13,10 +14,10 @@ public class Article {
     private String description;
 
     @OneToMany(mappedBy = "article")
-    private Set<Paragraph> paragraphs;
+    private List<Paragraph> paragraphs = new ArrayList<>();
 
     @OneToMany(mappedBy = "article")
-    private Set<Comment>comments;
+    private List<Comment> comments = new ArrayList<>();
 
     @ManyToOne
     private Chapter chapter;
@@ -34,7 +35,6 @@ public class Article {
     }
 
     // -------------------------------------------------------------------------------------
-
 
     public int getArticleId() {
         return articleId;
@@ -60,12 +60,20 @@ public class Article {
         this.description = description;
     }
 
-    public Set<Paragraph> getParagraphs() {
+    public List<Paragraph> getParagraphs() {
         return paragraphs;
     }
 
-    public void setParagraphs(Set<Paragraph> paragraphs) {
+    public void setParagraphs(List<Paragraph> paragraphs) {
         this.paragraphs = paragraphs;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     public Chapter getChapter() {

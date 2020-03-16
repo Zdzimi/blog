@@ -20,7 +20,7 @@
 
             <div id="addComment">
 
-                <form action="add-comment" >
+                <form action="add-comment" method="post">
 
                     <div><label for="comment">Write comment:</label></div>
                     <textarea name="commentContent" id="comment" rows="4" cols="80"></textarea>

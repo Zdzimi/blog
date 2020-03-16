@@ -1,7 +1,7 @@
 package com.zdzimi.blog.controller.admin;
 
-import com.zdzimi.blog.dao.TopbarMenuRepository;
 import com.zdzimi.blog.model.TopbarMenu;
+import com.zdzimi.blog.service.TopbarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,30 +12,30 @@ import static com.zdzimi.blog.controller.admin.AdminNavigation.ADMIN_NAVIGATION;
 @Controller
 public class TopbarController {
 
-    private TopbarMenuRepository topbarMenuRepository;
+    private TopbarService topbarService;
 
     @Autowired
-    public TopbarController(TopbarMenuRepository topbarMenuRepository) {
-        this.topbarMenuRepository = topbarMenuRepository;
+    public TopbarController(TopbarService topbarService) {
+        this.topbarService = topbarService;
     }
 
     @RequestMapping("/topbar")
     public String showTopbarController(Model model){
         model.addAttribute("nav", ADMIN_NAVIGATION);
-        model.addAttribute("top", topbarMenuRepository.findAll());
+        model.addAttribute("top", topbarService.findAll());
         return "topbar";
     }
 
     @RequestMapping("/delete-topbar")
     public String deleteTopbar(String top){
-        TopbarMenu byTop = topbarMenuRepository.findByTop(top);
-        topbarMenuRepository.delete(byTop);
+        TopbarMenu byTop = topbarService.findByTop(top);
+        topbarService.delete(byTop);
         return "redirect:/topbar";
     }
 
     @RequestMapping("/save-top")
     public String saveTopEntity(int tId, String top, String tContent){
-        TopbarMenu save = topbarMenuRepository.save(new TopbarMenu(tId, top, tContent));
+        topbarService.save(new TopbarMenu(tId, top, tContent));
         return "redirect:/topbar";
     }
 }

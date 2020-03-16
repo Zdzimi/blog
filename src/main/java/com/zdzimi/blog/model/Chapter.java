@@ -4,7 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Chapter {
@@ -15,7 +16,7 @@ public class Chapter {
     private String chapterTitle;
 
     @OneToMany(mappedBy = "chapter")
-    private Set<Article> articles;
+    private List<Article> articles = new ArrayList<>();
 
     // -------------------------------------------------------------------------------------
 
@@ -45,11 +46,11 @@ public class Chapter {
         this.chapterTitle = chapterTitle;
     }
 
-    public Set<Article> getArticles() {
+    public List<Article> getArticles() {
         return articles;
     }
 
-    public void setArticles(Set<Article> articles) {
+    public void setArticles(List<Article> articles) {
         this.articles = articles;
     }
 }
