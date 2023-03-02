@@ -1,11 +1,7 @@
 package com.zdzimi.blog;
 
-import com.zdzimi.blog.controller.admin.PhotoController;
-import com.zdzimi.blog.controller.user.UsersController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.io.File;
 
 @SpringBootApplication
 public class BlogApplication {
