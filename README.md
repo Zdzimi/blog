@@ -10,6 +10,8 @@ cd blog/
 
 mvn install
 
+del database.mv.db
+
 cd target/
 
 java -jar blog-0.0.1-SNAPSHOT.jar
